@@ -20,47 +20,38 @@ public class PilaConEnlaces<E> implements Stack<E> {
 		tamanio = 0;
 	}
 
-	/**
-	 * @override
-	 */
+	@Override
 	public int size() {
 		return tamanio;
 	}
 
-	/**
-	 * @override
-	 */
+	@Override
 	public boolean isEmpty() {
 		return tamanio == 0;
 	}
 
-	/**
-	 * @override
-	 */
+	@Override
 	public E top() throws EmptyStackException {
-		if (isEmpty())
+		if( tamanio == 0 )
 			throw new EmptyStackException("La pila se encuentra vacía.");
 		return head.getElemento();
 	}
 
-	/**
-	 * @override
-	 */
+	@Override
 	public void push(E element) {
 		Nodo<E> aux = new Nodo<E>(element, head);
 		head = aux;
 		tamanio++;
 	}
 
-	/**
-	 * @override
-	 */
+	@Override
 	public E pop() throws EmptyStackException {
-		if (isEmpty())
+		if( tamanio == 0 )
 			throw new EmptyStackException("La pila se encuentra vacía.");
 		E aux = head.getElemento();
 		head = head.getSiguiente();
 		tamanio--;
 		return aux;
 	}
+	
 }
