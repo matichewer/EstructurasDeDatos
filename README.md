@@ -1,4 +1,4 @@
-## Estructuras de datos en Java.
+## Estructuras de datos implementadas en Java.
 
 
 1. Pila
