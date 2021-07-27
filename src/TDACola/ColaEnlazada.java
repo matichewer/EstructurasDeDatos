@@ -31,7 +31,7 @@ public class ColaEnlazada<E> implements Queue<E> {
 	@Override
 	public void enqueue(E element) {
 		Nodo<E> nodo = new Nodo<E>(element, null);
-		if (tamanio == 0)
+		if( tamanio == 0 )
 			head = nodo;
 		else
 			tail.setSiguiente(nodo);
@@ -41,12 +41,12 @@ public class ColaEnlazada<E> implements Queue<E> {
 
 	@Override
 	public E dequeue() throws EmptyQueueException {
-		if (tamanio == 0)
+		if( tamanio == 0 )
 			throw new EmptyQueueException("La cola se encuentra vacia");
 		E aux = head.getElemento();
 		head = head.getSiguiente();
 		tamanio--;
-		if (tamanio == 0)
+		if( tamanio == 0 )
 			tail = null;
 		return aux;
 	}
