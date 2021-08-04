@@ -2,13 +2,20 @@ package TDALista;
 
 import java.util.Iterator;
 
-public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 
-	protected Nodo<E> cabeza;
+/*
+ * Lista Simplemente Enlazada, 
+ * 		 Sin Centinelas,
+ * 		 con Enlace directo a la Primer y Ultima posicion
+ */
+public class ListaSE_SC_EPyU<E> implements PositionList<E> {
+
+	protected Nodo<E> head, tail; // cabeza, rabo
 	protected int tamanio;
 
-	public ListaSimplementeEnlazada() {
-		cabeza = null;
+	public ListaSE_SC_EPyU() {
+		head = null;
+		tail = null;
 		tamanio = 0;
 	}
 
@@ -19,32 +26,29 @@ public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 
 	@Override
 	public boolean isEmpty() {
-		return cabeza == null;
+		return head == null;
 	}
 
 	@Override
 	public Position<E> first() throws EmptyListException {
-		if (cabeza == null)
-			throw new EmptyListException("first(): Quiere ejecutar first con una lista vacia");
-		return cabeza;
+		if( tamanio == 0 )
+			throw new EmptyListException("first(): no se puede obtener la primera posicion de una lista vacia");
+		return head;
 	}
 
 	@Override
 	public Position<E> last() throws EmptyListException {
-		if (cabeza == null)
-			throw new EmptyListException("last(): Quiere ejecutar last con una lista vacia");
-		Nodo<E> n = cabeza;
-		while (n.getSiguiente() != null)
-			n = n.getSiguiente();
-		return n;
+		if ( tamanio == 0 )
+			throw new EmptyListException("last(): no se puede obtener la ultima posicion de una lista vacia");
+		return tail;
 	}
 
 	@Override
 	public Position<E> next(Position<E> p) throws InvalidPositionException, BoundaryViolationException {
 		Nodo<E> n = checkPosition(p);
-		if( n.getSiguiente() == null )
+		if( n.getNext() == null )
 			throw new BoundaryViolationException("Next(p): el ultimo no tiene siguiente");
-		return n.getSiguiente();
+		return n.getNext();
 	}
 
 	/**
@@ -68,6 +72,8 @@ public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 
 	@Override
 	public Position<E> prev(Position<E> p) throws InvalidPositionException, BoundaryViolationException {
+		if( tamanio == 0 )
+			throw new InvalidPositionException("prev(p): la lista se encuentra vacia");
 		try {
 			if( p == first() )
 				throw new BoundaryViolationException("prev(p): el primero no tiene previo");
@@ -75,10 +81,10 @@ public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 			e.printStackTrace();
 		}
 		Nodo<E> n = checkPosition(p);
-		Nodo<E> aux = cabeza;
-		while (aux.getSiguiente() != n && aux.getSiguiente() != null)
-			aux = aux.getSiguiente();
-		if (aux.getSiguiente() == null)
+		Nodo<E> aux = head;
+		while (aux.getNext() != n && aux.getNext() != null)
+			aux = aux.getNext();
+		if (aux.getNext() == null)
 			throw new InvalidPositionException("prev(p): la posicion no pertenece a la lista");
 		return aux;
 
@@ -86,29 +92,34 @@ public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 
 	@Override
 	public void addFirst(E elem) {
-		cabeza = new Nodo<E>(elem, cabeza);
+		Nodo<E> n = new Nodo<E>(elem, head);
+		head = n;
+		if( tamanio == 0 )
+			tail = n;
 		tamanio++;
 	}
 
 	@Override
-	public void addLast(E element) {
-		if( isEmpty() )
-			addFirst(element);
-		else {
-			Nodo<E> p = cabeza;
-			while (p.getSiguiente() != null)
-				p = p.getSiguiente();
-			p.setSiguiente(new Nodo<E>(element));
-			tamanio++;
-		}
+	public void addLast(E elem) {
+		Nodo<E> n = new Nodo<E>(elem);
+		if( tamanio == 0 ) {
+			tail = n;
+			head = n;
+		} else {
+			tail.setNext(n);
+			tail = n;			
+		}			
+		tamanio++;
 	}
 
 	@Override
 	public void addAfter(Position<E> p, E elem) throws InvalidPositionException {
 		Nodo<E> n = checkPosition(p);
 		Nodo<E> nuevo = new Nodo<E>(elem);
-		nuevo.setSiguiente(n.getSiguiente());
-		n.setSiguiente(nuevo);
+		nuevo.setNext(n.getNext());
+		n.setNext(nuevo);
+		if( n == tail )
+			tail = nuevo;
 		tamanio++;
 	}
 
@@ -121,7 +132,7 @@ public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 			else {
 				Nodo<E> anterior = (Nodo<E>) prev(p);
 				Nodo<E> nuevo = new Nodo<E>(elem, n);
-				anterior.setSiguiente(nuevo);
+				anterior.setNext(nuevo);
 				tamanio++;
 			}
 		} catch (EmptyListException e) {
@@ -137,12 +148,19 @@ public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 			throw new InvalidPositionException("remove(p): la lista se encuentra vacia");
 		Nodo<E> n = checkPosition(p);
 		E oldElement = p.element();
-		if( n == cabeza )
-			cabeza = cabeza.getSiguiente();
-		else {
+		if( n == head ) { // head=tail
+			head = head.getNext();
+			if( tamanio == 1 )
+				tail = null;
+		}
+		else {	
 			try {
 				Nodo<E> anterior = (Nodo<E>) prev(p);
-				anterior.setSiguiente(n.getSiguiente());
+				if( n == tail ) {
+					anterior.setNext(null);
+					tail = anterior;
+				} else
+					anterior.setNext(n.getNext());
 			} catch (BoundaryViolationException e) {
 				e.printStackTrace();
 			}
@@ -157,7 +175,7 @@ public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 			throw new InvalidPositionException("set(p): la lista se encuentra vacia");
 		Nodo<E> n = checkPosition(p);
 		E oldElement = p.element();
-		n.setElemento(element);
+		n.setElement(element);
 		return oldElement;
 	}
 
@@ -165,14 +183,14 @@ public class ListaSimplementeEnlazada<E> implements PositionList<E> {
 	public Iterator<E> iterator() {
 		return new ElementIterator<E>(this);
 	}
-
+	
 	@Override
 	public Iterable<Position<E>> positions() {
-		PositionList<Position<E>> iterable = new ListaSimplementeEnlazada<Position<E>>();
-		Nodo<E> actual = cabeza;
+		PositionList<Position<E>> iterable = new ListaSE_SC_EPyU<Position<E>>();
+		Nodo<E> actual = head;
 		while (actual != null) {
 			iterable.addLast(actual);
-			actual = actual.getSiguiente();
+			actual = actual.getNext();
 		}
 		return iterable;
 	}

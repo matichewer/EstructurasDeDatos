@@ -2,31 +2,35 @@ package TDALista;
 
 public class Nodo<E> implements Position<E> {
 
-	private E elemento;
-	private Nodo<E> siguiente;
+	private E element;
+	private Nodo<E> next;
 
-	public Nodo(E elem, Nodo<E> sig) {
-		elemento = elem;
-		siguiente = sig;
+	public Nodo(E element, Nodo<E> next) {
+		this.element = element;
+		this.next = next;
 	}
 
-	public Nodo(E elem) {
-		this(elem, null);
+	public Nodo(E element) {
+		this(element, null);
 	}
 
-	public Nodo<E> getSiguiente() {
-		return siguiente;
-	}
-
-	public void setElemento(E elem) {
-		elemento = elem;
-	}
-
-	public void setSiguiente(Nodo<E> sig) {
-		siguiente = sig;
-	}
-
+	
+	@Override
 	public E element() {
-		return elemento;
+		return element;
 	}
+	
+	public void setElement(E element) {
+		this.element = element;
+	}
+	
+	
+	public Nodo<E> getNext() {
+		return next;
+	}
+
+	public void setNext(Nodo<E> next) {
+		this.next = next;
+	}
+
 }
