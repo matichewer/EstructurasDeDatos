@@ -4,9 +4,10 @@ import java.util.Iterator;
 
 
 /*
- * Lista Doblemente Enlazada
- * 		 Con Centinelas
- * 		 con Enlace a la Primer y Ultima posicion
+ * ListaDE_CC_EPyU:
+	 * Lista Doblemente Enlazada
+	 * 		 Con Centinelas
+	 * 		 con Enlace a la Primer y Ultima posicion
  */
 public class ListaDE_CC_EPyU<E> implements PositionList<E> {
 

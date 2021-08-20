@@ -2,8 +2,6 @@ package TDALista;
  
 /**
   * Interface Position
-  * 
-  * @author Matias David Schwerdt
   * Modela la posicion en una estructura
   */
 

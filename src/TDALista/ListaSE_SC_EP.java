@@ -4,9 +4,10 @@ import java.util.Iterator;
 
 
 /*
- * Lista Simplemente Enlazada
- * 		 Sin Centinelas
- * 		 con Enlace directo a la Primer posicion
+ * ListaSE_SC_EP:
+	 * Lista Simplemente Enlazada
+	 * 		 Sin Centinelas
+	 * 		 con Enlace directo a la Primer posicion
  */
 public class ListaSE_SC_EP<E> implements PositionList<E> {
 	

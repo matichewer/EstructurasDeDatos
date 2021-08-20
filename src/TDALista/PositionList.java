@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 /**
  * Interface PositionList
- * @author Matías David Schwerdt
  */
 public interface PositionList<E> extends Iterable<E> {
 	

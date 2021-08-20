@@ -2,7 +2,6 @@ package TDALista;
 
 /**
  * Class EmptyStackException
- * @author Matias David Schwerdt
  * Clase que modela la excepcion ante una operacion que excede los límites de la estructura
  */
 public class BoundaryViolationException extends Exception{

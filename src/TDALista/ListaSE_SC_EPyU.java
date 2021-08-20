@@ -3,10 +3,11 @@ package TDALista;
 import java.util.Iterator;
 
 
-/*
- * Lista Simplemente Enlazada, 
- * 		 Sin Centinelas,
- * 		 con Enlace directo a la Primer y Ultima posicion
+/*  
+ * ListaSE_SC_EPyU:
+	 * Lista Simplemente Enlazada, 
+	 * 		 Sin Centinelas,
+	 * 		 con Enlace directo a la Primer y Ultima posicion 
  */
 public class ListaSE_SC_EPyU<E> implements PositionList<E> {
 

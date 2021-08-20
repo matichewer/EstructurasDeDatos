@@ -4,8 +4,9 @@ import java.util.Iterator;
 
 
 /*
- * Lista Simplemente Enlazada
- * 		 Con un Centinela (nodo dummy)
+ * ListaSE_CC:
+	 * Lista Simplemente Enlazada
+	 * 		 Con un Centinela (nodo dummy)
  */
 public class ListaSE_CC<E> implements PositionList<E> {
 	private Nodo<E> head;
