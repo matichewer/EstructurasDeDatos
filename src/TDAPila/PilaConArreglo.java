@@ -40,7 +40,7 @@ public class PilaConArreglo<E> implements Stack<E> {
 	@Override
 	public E top()throws EmptyStackException{
 		if( tamanio == 0 ) 
-			throw new EmptyStackException("La pila se encuentra vaci�a.");
+			throw new EmptyStackException("La pila se encuentra vacivaciaa.");
 		return datos[tamanio-1];		
 	}
 
@@ -65,7 +65,7 @@ public class PilaConArreglo<E> implements Stack<E> {
 	@Override
 	public E pop() throws EmptyStackException{
 		if( tamanio == 0 )
-			throw new EmptyStackException("La pila se encuentra vaci�a.");
+			throw new EmptyStackException("La pila se encuentra vacia.");
 		E aux = datos[--tamanio];
 		datos[tamanio] = null;
 		return aux;
