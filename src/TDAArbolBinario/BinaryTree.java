@@ -45,7 +45,7 @@ public interface BinaryTree<E> extends GTTree<E> {
 	
 	/**
 	 * Crea un nodo con rotulo e como raiz del arbol.
-	 * @param E Rótulo que se asignar� a la raiz del arbol.
+	 * @param E Rótulo que se asignará a la raiz del arbol.
 	 * @throws InvalidOperationException si el arbol ya tiene un nodo raiz.
 	 */
 	public Position<E> createRoot(E r) throws InvalidOperationException;
