@@ -1,10 +1,5 @@
 package TDAPila;
 
-/**
- * Interface Stack
- * 
- * @author Matias David Schwerdt
- */
 
 public interface Stack<E> {
 

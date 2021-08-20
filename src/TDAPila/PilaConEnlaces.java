@@ -1,12 +1,6 @@
 package TDAPila;
 
 
-/**
- * Clase PilaConEnlaces
- * 
- * @author Matias David Schwerdt
- */
-
 public class PilaConEnlaces<E> implements Stack<E> {
 
 	protected Nodo<E> head;

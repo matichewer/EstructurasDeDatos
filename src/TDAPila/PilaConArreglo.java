@@ -3,7 +3,6 @@ package TDAPila;
 
 /**
  * Clase PilaConArreglo
- * @author Matias David Schwerdt
  * Implementacion de una pila generica usando un arreglo
  */
 

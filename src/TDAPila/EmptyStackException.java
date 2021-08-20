@@ -1,12 +1,10 @@
 package TDAPila;
 
 /**
- * Class EmptyStackException
- * 
- * @author Matias David Schwerdt
- * 
+ * Class EmptyStackException 
  * Clase que modela la excepcion ante una operacion sobre una pila vacia
  */
+
 public class EmptyStackException extends Exception{
 	
 	/**
