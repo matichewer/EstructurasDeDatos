@@ -3,8 +3,6 @@ package TDACola;
 
 /**
  * Clase PilaArreglo
- * 
- * @author Matias David Schwerdt
  * Implementación de una cola genérica usando un arreglo circular
  */
 

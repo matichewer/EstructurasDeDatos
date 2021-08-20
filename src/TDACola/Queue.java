@@ -2,8 +2,6 @@ package TDACola;
 
 /**
  * Interface Queue
- * 
- * @author Matias David Schwerdt
  */
 
 public interface Queue <E>{
