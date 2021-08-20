@@ -1,8 +1,7 @@
 package ABB;
 /**
- * Implementaci�n de una Entrada Comparable que almacena un par Clave-Valor.
+ * Implementacion de una Entrada Comparable que almacena un par Clave-Valor.
  * Asume el tipo de dato de la clave es comparable.
- * @author FJoaquin (federico.joaquin@cs.uns.edu.ar)
  *
  * @param <K> Tipo de dato de la clave de la entrada; se asume comparable.
  * @param <V> Tipo de dato del valor de la entrada.

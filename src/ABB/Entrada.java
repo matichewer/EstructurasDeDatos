@@ -1,6 +1,6 @@
 package ABB;
 /**
- * Implementaci�n de una Entrada que almacena un par Clave-Valor.
+ * Implementacion de una Entrada que almacena un par Clave-Valor.
  * @param <K> Tipo de dato de la clave del par.
  * @param <V> Tipo de dato del valor del par.
  */

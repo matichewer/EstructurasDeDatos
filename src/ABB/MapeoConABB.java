@@ -3,7 +3,7 @@ package ABB;
 import TDALista.*;
 
 /**
- * Implementaci�n de un Mapeo con un �rbol Binario de B�squeda.
+ * Implementacion de un Mapeo con un arbol Binario de Busqueda.
  * Asume el tipo de dato de las claves comparable.
  *
  * @param <K> Tipo de dato de las claves del mapeo.
@@ -15,7 +15,7 @@ public class MapeoConABB<K extends Comparable<K>, V> implements Map<K, V> {
 	protected int size;
 	
 	/**
-	 * Inicializa un mapeo vac�o.
+	 * Inicializa un mapeo vacio.
 	 */
 	public MapeoConABB(){
 		abb = new ABB<EntradaComparable<K,V>>(null);

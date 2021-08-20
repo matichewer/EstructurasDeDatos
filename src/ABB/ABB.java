@@ -3,8 +3,8 @@ package ABB;
 
 import java.util.Comparator;
 /**
- * Implementaci�n de un �rbol Binario de B�squeda, considerando nodos DUMMY.
- * @param <E> Tipo de dato de los r�tulos del ABB.
+ * Implementacion de un arbol Binario de Busqueda, considerando nodos DUMMY.
+ * @param <E> Tipo de dato de los rotulos del ABB.
  */
 public class ABB<E extends Comparable<E>> {
 	
@@ -12,7 +12,7 @@ public class ABB<E extends Comparable<E>> {
 	protected Comparator<E> comparador;
 	
 	/**
-	 * Inicializa un ABB vac�o.
+	 * Inicializa un ABB vacio.
 	 * Si no se parametriza un comparador de elementos, utiliza el comparador por defecto.
 	 * @param comp Comparador de elementos del ABB.
 	 */
@@ -24,8 +24,8 @@ public class ABB<E extends Comparable<E>> {
 			comparador = new DefaultComparator<E>();
 	}
 	/**
-	 * Obtiene el nodo ra�z del ABB.
-	 * @return Nodo ra�z del ABB.
+	 * Obtiene el nodo raiz del ABB.
+	 * @return Nodo raiz del ABB.
 	 */
 	public NodoABB<E> getRoot(){
 		return raiz;
@@ -33,12 +33,12 @@ public class ABB<E extends Comparable<E>> {
 	/**
 	 * Inserta un nuevo elemento al ABB, si este no existe.
 	 * @param elemento Nuevo elemento a insertar.
-	 * @return Verdadero si la inserci�n es posbile, falso en caso de que el elemento ya se encuentre en el ABB.
+	 * @return Verdadero si la insercion es posbile, falso en caso de que el elemento ya se encuentre en el ABB.
 	 */
 	public boolean insertar(E elemento){
 		boolean toReturn = false;
 		
-		//Se obtiene la ubicaci�n del nuevo elemento en el ABB
+		//Se obtiene la ubicacion del nuevo elemento en el ABB
 		NodoABB<E> nodo = buscar(elemento);
 		//Si no existe en el ABB un nodo con elemento igual al buscado
 		if( nodo.getRotulo() == null ) {
@@ -62,7 +62,7 @@ public class ABB<E extends Comparable<E>> {
 	 */
 	public E eliminar(E elemento){
 		E toReturn = null;
-		//Obtiene la ubicaci�n que deber�a ocupar el elemento en el ABB
+		//Obtiene la ubicacion que deberia ocupar el elemento en el ABB
 		NodoABB<E> nodo = buscar( elemento );
 		//Si no es un nodo DUMMY (esto es, existe el elemento en el ABB)
 		if(nodo.getRotulo() != null) {
@@ -72,7 +72,7 @@ public class ABB<E extends Comparable<E>> {
 		return toReturn;
 	}
 	/**
-	 * M�todo auxiliar para la eliminaci�n de un nodo del ABB.
+	 * Metodo auxiliar para la eliminacion de un nodo del ABB.
 	 * @param nodo
 	 */
 	private void eliminar_aux(NodoABB<E> nodo){
@@ -91,7 +91,6 @@ public class ABB<E extends Comparable<E>> {
 						nodo.getRight().setParent(null);
 						raiz = nodo.getRight();
 					}else{
-						//Se modifica el r�tulo por el m�nimo valor del ABB en inorden a partir de nodo.
 						nodo.setRotulo(eliminarMinimo(nodo.getRight()));
 					}
 				}
@@ -111,7 +110,7 @@ public class ABB<E extends Comparable<E>> {
 							 nodo.getParent().setRight(nodo.getRight());
 						 nodo.getRight().setParent( nodo.getParent() );
 					 }else{
-						//Se modifica el r�tulo por el m�nimo valor del ABB en inorden a partir de nodo.
+						//Se modifica el rotulo por el minimo valor del ABB en inorden a partir de nodo.
 						 nodo.setRotulo(eliminarMinimo(nodo.getRight()));
 					 }
 				 }
@@ -143,9 +142,9 @@ public class ABB<E extends Comparable<E>> {
 		return nodo.getLeft().getRotulo() == null && nodo.getRight().getRotulo() != null;
 	}
 	/**
-	 * Obtiene el nodo cuyo valor es m�nimo, a partir del sub�rbol izquierdo del nodo parametrizado.
-	 * @param nodo A partir del cual se busca el elemento m�nimo en su sub�rbol izquierdo.
-	 * @return Elemento m�nimo hallado.
+	 * Obtiene el nodo cuyo valor es minimo, a partir del subarbol izquierdo del nodo parametrizado.
+	 * @param nodo A partir del cual se busca el elemento minimo en su subarbol izquierdo.
+	 * @return Elemento minimo hallado.
 	 */
 	private E eliminarMinimo( NodoABB<E> nodo ) {
 		E toReturn;
@@ -174,29 +173,29 @@ public class ABB<E extends Comparable<E>> {
 	}
 	
 	/**
-	 * Obtiene el nodo correspondiente donde se ubicar�a el elemento parametrizado.
+	 * Obtiene el nodo correspondiente donde se ubicaria el elemento parametrizado.
 	 * @param elemento A buscar dentro del ABB.
-	 * @return Nodo cuyo elemento es el buscado; caso contrario, nodo DUMMY donde el elemento deber�a ser insertado.
+	 * @return Nodo cuyo elemento es el buscado; caso contrario, nodo DUMMY donde el elemento deberia ser insertado.
 	 */
 	public NodoABB<E> buscar(E elemento){
 		return buscar_aux(raiz, elemento);
 	}
 	/**
-	 * M�todo auxiliar para computar la b�squeda del nodo en el ABB para un elemento dado.
+	 * Metodo auxiliar para computar la busqueda del nodo en el ABB para un elemento dado.
 	 */
 	private NodoABB<E> buscar_aux(NodoABB<E> nodo, E elemento){
 		NodoABB<E> toReturn;
 		
-		//Si la b�squeda arriba a un nodo DUMMY, lo retorna.
+		//Si la busqueda arriba a un nodo DUMMY, lo retorna.
 		if( nodo.getRotulo() == null ) 
 			toReturn = nodo; 
 		else{
 			int c = comparador.compare(elemento, nodo.getRotulo());
-			//Si los r�tulos son iguales, se retorna el nodo visitado.
+			//Si los rotulos son iguales, se retorna el nodo visitado.
 			if( c == 0 ) 
 				toReturn = nodo; 
 			else
-				//Si el r�tulo buscado es menor al r�tulo del nodo visitado, se contin�a por el sub�rbol izquierdo
+				//Si el rotulo buscado es menor al rotulo del nodo visitado, se continua por el subarbol izquierdo
 				if( c < 0 ) 
 					toReturn = buscar_aux(nodo.getLeft(), elemento);
 				else

@@ -1,8 +1,8 @@
 package TDADiccionario;
 
 
-public interface Dictionary<K,V>
-{
+public interface Dictionary<K,V> {
+	
 	/**
 	 * Consulta el numero de entradas del diccionario.
 	 * @return Numero de entradas del diccionario.

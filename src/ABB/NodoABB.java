@@ -2,7 +2,7 @@ package ABB;
 
 /**
  * Implementa un nodo para un ABB.
- * @param <E> Tipo de dato del r�tulo del nodo.
+ * @param <E> Tipo de dato del rotulo del nodo.
  */
 public class NodoABB<E> {
 
@@ -11,8 +11,8 @@ public class NodoABB<E> {
 	protected NodoABB<E> hi;
 	protected NodoABB<E> hd;
 	/**
-	 * Inicializa un nodo de ABB con r�tulo y referencia al padre.
-	 * @param r R�tulo del nuevo nodo.
+	 * Inicializa un nodo de ABB con rotulo y referencia al padre.
+	 * @param r Rotulo del nuevo nodo.
 	 * @param p Padre del nuevo nodo.
 	 */
 	public NodoABB(E r, NodoABB<E> p){
@@ -21,8 +21,8 @@ public class NodoABB<E> {
 	}
 	
 	/**
-	 * Establece un nuevo r�tulo para el nodo.
-	 * @param r Nuevo r�tulo a establecer.
+	 * Establece un nuevo rotulo para el nodo.
+	 * @param r Nuevo rotulo a establecer.
 	 */
 	public void setRotulo(E r){ 
 		rotulo = r;
@@ -53,8 +53,8 @@ public class NodoABB<E> {
 	}
 	
 	/**
-	 * Obtiene el r�tulo del nodo.
-	 * @return El r�tulo del nodo.
+	 * Obtiene el rotulo del nodo.
+	 * @return El rotulo del nodo.
 	 */
 	public E getRotulo(){ 
 		return rotulo; 
