@@ -36,53 +36,53 @@ public class PriorityQueueTest {
 	public void size() {// Pruebo si insertar() actualiza el size()
 		try {
 			assertTrue(
-					"Tama�o de la cola con prioridad justo despu�s de ser creada != 0",
+					"Tamaño de la cola con prioridad justo despues de ser creada != 0",
 					s.size() == 0);
 			s.insert(i1, n1);
 			assertTrue(
-					"Tama�o de la cola con prioridad luego de insertar una vez != 1",
+					"Tamaño de la cola con prioridad luego de insertar una vez != 1",
 					s.size() == 1);
 			s.insert(i2, n2);
 			assertTrue(
-					"Tama�o de la cola con prioridad luego de insertar dos veces != 2",
+					"Tamaño de la cola con prioridad luego de insertar dos veces != 2",
 					s.size() == 2);
 			s.insert(i3, n3);
 			assertTrue(
-					"Tama�o de la cola con prioridad luego de insertar tres veces != 3",
+					"Tamaño de la cola con prioridad luego de insertar tres veces != 3",
 					s.size() == 3);
 		} catch (InvalidKeyException e) {
-			fail("El m�todo insert() no deber�a lanzar InvalidkeyException con una clave v�lida.");
+			fail("El metodo insert() no deberia lanzar InvalidkeyException con una clave valida.");
 		}
 
 		// Pruebo si min() y removeMin() actualizan el size()
 		try {
 			s.min();
 			assertTrue(
-					"Tama�o de la cola con prioridad cambio despu�s de invocar min()",
+					"Tamaño de la cola con prioridad cambio despues de invocar min()",
 					s.size() == 3);
 			s.removeMin();
 			assertTrue(
-					"Tama�o de la cola con prioridad luego de eliminar el m�nimo es != 2",
+					"Tamaño de la cola con prioridad luego de eliminar el minimo es != 2",
 					s.size() == 2);
 			s.min();
 			assertTrue(
-					"Tama�o de la cola con prioridad cambio despu�s de invocar min()",
+					"Tamaño de la cola con prioridad cambio despues de invocar min()",
 					s.size() == 2);
 			s.removeMin();
 			assertTrue(
-					"Tama�o de la cola con prioridad luego de eliminar el m�nimo es != 2",
+					"Tamaño de la cola con prioridad luego de eliminar el minimo es != 2",
 					s.size() == 1);
 			s.min();
 			assertTrue(
-					"Tama�o de la cola con prioridad cambio despu�s de invocar min()",
+					"Tamaño de la cola con prioridad cambio despues de invocar min()",
 					s.size() == 1);
 			s.removeMin();
 			assertTrue(
-					"Tama�o de la cola con prioridad luego de eliminar el m�nimo es != 2",
+					"Tamaño de la cola con prioridad luego de eliminar el minimo es != 2",
 					s.size() == 0);
 		} catch (EmptyPriorityQueueException e) {
 			e.printStackTrace();
-			fail("El m�todo min() o removeMin() no deber�a lanzar EmptyQueueException con una cola con elementos.");
+			fail("El metodo min() o removeMin() no deberia lanzar EmptyQueueException con una cola con elementos.");
 		}
 
 	}
@@ -93,53 +93,53 @@ public class PriorityQueueTest {
 		// correctamente
 		try {
 			assertTrue(
-					"La cola con prioridad no est� vac�a justo despu�s de ser creada",
+					"La cola con prioridad no está vacia justo despues de ser creada",
 					s.isEmpty());
 			s.insert(i1, n1);
 			assertTrue(
-					"La cola con prioridad est� vac�a justo despu�s de insertar 1 elemento",
+					"La cola con prioridad está vacia justo despues de insertar 1 elemento",
 					!s.isEmpty());
 			s.insert(i2, n2);
 			assertTrue(
-					"La cola con prioridad est� vac�a justo despu�s de insertar 2 elementos",
+					"La cola con prioridad está vacia justo despues de insertar 2 elementos",
 					!s.isEmpty());
 			s.insert(i3, n3);
 			assertTrue(
-					"La cola con prioridad est� vac�a justo despu�s de insertar 3 elementos",
+					"La cola con prioridad está vacia justo despues de insertar 3 elementos",
 					!s.isEmpty());
 		} catch (InvalidKeyException e) {
-			fail("El m�todo insert() no deber�a lanzar InvalidkeyException con una clave v�lida.");
+			fail("El metodo insert() no deberia lanzar InvalidkeyException con una clave valida.");
 		}
 		// Pruebo si al invocar min() y removeMin(), isEmpty() funciona
 		// correctamente
 		try {
 			s.min();
 			assertTrue(
-					"La cola con prioridad est� vac�a justo despu�s de insertar invocar min() teniendo 3 elementos",
+					"La cola con prioridad está vacia justo despues de insertar invocar min() teniendo 3 elementos",
 					!s.isEmpty());
 			s.removeMin();
 			assertTrue(
-					"La cola con prioridad est� vac�a justo despu�s de eliminar 1 elemento, quedando 2.",
+					"La cola con prioridad está vacia justo despues de eliminar 1 elemento, quedando 2.",
 					!s.isEmpty());
 			s.min();
 			assertTrue(
-					"La cola con prioridad est� vac�a justo despu�s de insertar invocar min() teniendo 2 elementos",
+					"La cola con prioridad está vacia justo despues de insertar invocar min() teniendo 2 elementos",
 					!s.isEmpty());
 			s.removeMin();
 			assertTrue(
-					"La cola con prioridad est� vac�a justo despu�s de eliminar 1 elemento, quedando 1.",
+					"La cola con prioridad está vacia justo despues de eliminar 1 elemento, quedando 1.",
 					!s.isEmpty());
 			s.min();
 			assertTrue(
-					"La cola con prioridad est� vac�a justo despu�s de insertar invocar min() teniendo 1 elemento",
+					"La cola con prioridad está vacia justo despues de insertar invocar min() teniendo 1 elemento",
 					!s.isEmpty());
 			s.removeMin();
 			assertTrue(
-					"La cola con prioridad no est� vac�a justo despu�s de eliminar todos los elementos que ten�a.",
+					"La cola con prioridad no está vacia justo despues de eliminar todos los elementos que tenia.",
 					s.isEmpty());
 		} catch (EmptyPriorityQueueException e) {
 			e.printStackTrace();
-			fail("El m�todo min() o removeMin() no deber�a lanzar EmptyQueueException con una cola con elementos.");
+			fail("El metodo min() o removeMin() no deberia lanzar EmptyQueueException con una cola con elementos.");
 		}
 
 	}
@@ -148,10 +148,10 @@ public class PriorityQueueTest {
 	@Test
 	public void min() {
 		Entry<Integer, String> entrada;
-		// Cola vac�a
+		// Cola vacia
 		try {
 			entrada = s.min();
-			fail("min() deber�a lanzar la excepci�n EmptyPriorityQueue para una cola vac�a.");
+			fail("min() deberia lanzar la excepcion EmptyPriorityQueue para una cola vacia.");
 
 		} catch (EmptyPriorityQueueException e) {
 		}
@@ -165,7 +165,7 @@ public class PriorityQueueTest {
 			s.insert(i2, n2);
 
 		} catch (InvalidKeyException e) {
-			fail("El m�todo insert() no deber�a lanzar InvalidkeyException con una clave v�lida.");
+			fail("El metodo insert() no deberia lanzar InvalidkeyException con una clave valida.");
 		}
 		// Tengo que sacar los 6 elementos en orden.
 		try {
@@ -196,13 +196,13 @@ public class PriorityQueueTest {
 
 		} catch (EmptyPriorityQueueException e) {
 			e.printStackTrace();
-			fail("El m�todo min() o removeMin() no deber�a lanzar EmptyQueueException con una cola con elementos.");
+			fail("El metodo min() o removeMin() no deberia lanzar EmptyQueueException con una cola con elementos.");
 		}
 
-		// Cola vac�a
+		// Cola vacia
 		try {
 			entrada = s.min();
-			fail("min() deber�a lanzar la excepci�n EmptyPriorityQueue para una cola vac�a.");
+			fail("min() deberia lanzar la excepcion EmptyPriorityQueue para una cola vacia.");
 
 		} catch (EmptyPriorityQueueException e) {
 		}
@@ -225,7 +225,7 @@ public class PriorityQueueTest {
 			for (int i = 89; i > 75; i--)
 				s.insert(i, n5);
 		} catch (InvalidKeyException e) {
-			fail("El m�todo insert() no deber�a lanzar InvalidkeyException con una clave v�lida.");
+			fail("El metodo insert() no deberia lanzar InvalidkeyException con una clave valida.");
 		}
 
 		// Tengo que sacar los 1000 elementos en orden.
@@ -238,12 +238,12 @@ public class PriorityQueueTest {
 			}
 		} catch (EmptyPriorityQueueException e) {
 			e.printStackTrace();
-			fail("El m�todo min() o removeMin() no deber�a lanzar EmptyQueueException con una cola con elementos.");
+			fail("El metodo min() o removeMin() no deberia lanzar EmptyQueueException con una cola con elementos.");
 		}
 
 		try {
 			entrada = s.min();
-			fail("min() deber�a lanzar la excepci�n EmptyPriorityQueue para una cola vac�a.");
+			fail("min() deberia lanzar la excepcion EmptyPriorityQueue para una cola vacia.");
 
 		} catch (EmptyPriorityQueueException e) {
 		}
@@ -253,10 +253,10 @@ public class PriorityQueueTest {
 	@Test
 	public void insert_removeMin() {
 		Entry<Integer, String> entrada;
-		// Cola vac�a
+		// Cola vacia
 		try {
 			entrada = s.removeMin();
-			fail("removeMin() deber�a lanzar la excepci�n EmptyPriorityQueue para una cola vac�a.");
+			fail("removeMin() deberia lanzar la excepcion EmptyPriorityQueue para una cola vacia.");
 		} catch (EmptyPriorityQueueException e) {
 		}
 		// Insertando 6 elementos fuera de orden.
@@ -269,12 +269,12 @@ public class PriorityQueueTest {
 			s.insert(i2, n2);
 
 		} catch (InvalidKeyException e) {
-			fail("El m�todo insert() no deber�a lanzar InvalidkeyException con una clave v�lida.");
+			fail("El metodo insert() no deberia lanzar InvalidkeyException con una clave valida.");
 		}
-		// insertando con una clave inv�lida.
+		// insertando con una clave invalida.
 		try {
 			s.insert(null, n1);
-			fail("insert() deber�a lanzar la excepci�n InvalidKeyException para una clave nula.");
+			fail("insert() deberia lanzar la excepcion InvalidKeyException para una clave nula.");
 		} catch (InvalidKeyException e) {
 		}
 
@@ -300,13 +300,13 @@ public class PriorityQueueTest {
 					.getKey().equals(i6) && entrada.getValue().equals(n6)));
 
 		} catch (EmptyPriorityQueueException e) {
-			fail("El m�todo removeMin() no deber�a lanzar EmptyQueueException con una cola con elementos.");
+			fail("El metodo removeMin() no deberia lanzar EmptyQueueException con una cola con elementos.");
 		}
 
-		// Cola vac�a.
+		// Cola vacia.
 		try {
 			entrada = s.removeMin();
-			fail("removeMin() deber�a lanzar la excepci�n EmptyPriorityQueue para una cola vac�a.");
+			fail("removeMin() deberia lanzar la excepcion EmptyPriorityQueue para una cola vacia.");
 
 		} catch (EmptyPriorityQueueException e) {
 		}
@@ -329,7 +329,7 @@ public class PriorityQueueTest {
 			for (int i = 89; i > 75; i--)
 				s.insert(i, n5);
 		} catch (InvalidKeyException e) {
-			fail("El m�todo insert() no deber�a lanzar InvalidkeyException con una clave v�lida.");
+			fail("El metodo insert() no deberia lanzar InvalidkeyException con una clave valida.");
 		}
 		// Tengo que sacar los 1000 elementos en orden.
 		try {
@@ -339,12 +339,12 @@ public class PriorityQueueTest {
 						.getKey().equals(i));
 			}
 		} catch (EmptyPriorityQueueException e) {
-			fail("El m�todo removeMin() no deber�a lanzar EmptyQueueException con una cola con elementos.");
+			fail("El metodo removeMin() no deberia lanzar EmptyQueueException con una cola con elementos.");
 		}
-		// Cola vac�a.
+		// Cola vacia.
 		try {
 			entrada = s.removeMin();
-			fail("removeMin() deber�a lanzar la excepci�n EmptyPriorityQueue para una cola vac�a.");
+			fail("removeMin() deberia lanzar la excepcion EmptyPriorityQueue para una cola vacia.");
 
 		} catch (EmptyPriorityQueueException e) {
 		}
