@@ -31,7 +31,6 @@ public class CPConListaNoOrdenada<K extends Comparable<K>,V> implements Priority
 	}
 
 	public Entry<K, V> min() throws EmptyPriorityQueueException {
-		// TODO Auto-generated method stub
 		if (size()==0) throw new EmptyPriorityQueueException("dasdasd");
 		Iterator<Entry<K,V>> it=lista.iterator();
 		Entry<K,V> toReturn=null;

@@ -48,7 +48,6 @@ public class MyTest {
 		} catch (InvalidKeyException e) {
 			e.printStackTrace();
 		} catch (InvalidEntryException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

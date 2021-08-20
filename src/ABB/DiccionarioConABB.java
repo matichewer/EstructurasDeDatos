@@ -138,7 +138,6 @@ public class DiccionarioConABB<K extends Comparable<K>, V> implements Dictionary
 						
 					
 					} catch (InvalidPositionException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				 }
@@ -185,14 +184,12 @@ public class DiccionarioConABB<K extends Comparable<K>, V> implements Dictionary
 					try {
 						lista.remove(k);
 					} catch (InvalidPositionException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 	        	} else {
 					try {
 						nodo.getRotulo().getValue().remove(k);
 					} catch (InvalidPositionException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 	        	}

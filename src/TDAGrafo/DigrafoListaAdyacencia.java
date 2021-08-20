@@ -33,7 +33,6 @@ public class DigrafoListaAdyacencia<V,E> implements GraphD<V,E> {
 
 	@Override
 	public Iterable<Edge<E>> incidentEdges(Vertex<V> v) throws InvalidVertexException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -87,7 +86,6 @@ public class DigrafoListaAdyacencia<V,E> implements GraphD<V,E> {
 
 	@Override
 	public V replace(Vertex<V> v, V x) throws InvalidVertexException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
