@@ -157,4 +157,17 @@ public class ListaDE_CC_EPyU<E> implements PositionList<E> {
 		}
 		return iterable;
 	}
+	
+	public String toString() {
+		if(isEmpty())
+			return "< >";
+		String s = "<";
+		DNodo<E> cursor = header.getNext();
+		while (cursor != trailer) {
+			s += cursor.element().toString() + " - ";
+			cursor = cursor.getNext();
+		}
+		s += ">";
+		return s;
+	};
 }
