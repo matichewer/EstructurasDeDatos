@@ -3,8 +3,11 @@
 
 1. Pila
 2. Cola
-3. Lista
-4. Mapa
-5. Diccionario
-6. Árbol
-7. Grafo
+3. Cola con prioridad
+4. Lista
+5. Mapa
+6. Diccionario
+7. Árbol
+8. Árbol binario
+9. Árbol binario de búsqueda
+10. Grafo
